@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hillary Eland - Founder of GD STUDIOS | Child Genius Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
     <style>
         /*
@@ -31,6 +33,7 @@
             --font-main: 'Roboto', sans-serif;
             --font-headings: 'Orbitron', sans-serif; /* Futuristic headings */
             --font-code: 'Share Tech Mono', monospace; /* Monospace for code/tech terms */
+            --orange-glow: #ffa500; /* Orange glow color */
         }
 
         /* Global Glow Animation for Professionalism */
@@ -77,7 +80,7 @@
             padding: 0 25px;
         }
 
-        /* Header & Navigation */
+        /* Header (simplified) */
         header {
             background-color: var(--darker-section-background);
             padding: 1.5rem 0;
@@ -87,60 +90,17 @@
             box-shadow: 0 5px 15px rgba(0, 234, 255, 0.1);
             border-bottom: 1px solid var(--accent-gray);
             animation: subtle-glow 3s infinite ease-in-out;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
+            display: flex; /* Ensure header content is centered */
+            justify-content: center;
             align-items: center;
         }
 
-        .logo {
+        header .logo {
             font-family: var(--font-headings);
             font-size: 2.2em;
             font-weight: 700;
             color: var(--heading-color);
             text-shadow: 0 0 10px var(--primary-glow-blue);
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 35px;
-        }
-
-        nav ul li a {
-            color: var(--text-color);
-            font-weight: 700;
-            font-family: var(--font-headings);
-            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
-            position: relative;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background-color: var(--primary-glow-blue);
-            transition: width 0.3s ease-out;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-glow-blue);
-            text-shadow: 0 0 10px var(--primary-glow-blue);
-            transform: translateY(-2px);
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
         }
 
         /* Hero Section with Name Animation & Glowing Circle */
@@ -182,9 +142,21 @@
         .hero-content {
             position: relative;
             z-index: 2; /* Above the circle */
+            display: flex; /* To arrange content vertically */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
         /* Name Typing Animation */
+        .typed-name-container {
+            position: relative; /* Container for name and rotating circle */
+            display: inline-block; /* Shrink to content */
+            margin: 0 auto;
+            margin-bottom: 20px; /* Space between name and menu */
+        }
+
         .typed-name {
             font-family: var(--font-headings);
             font-size: 4.5em;
@@ -194,17 +166,42 @@
             white-space: nowrap; /* Keeps text on one line */
             border-right: 4px solid var(--primary-glow-blue); /* Cursor effect */
             animation:
-                typing 3s steps(14, end) forwards, /* Adjust steps to name length */
+                typing 6s steps(14, end) infinite alternate, /* Infinite and slower typing */
                 blink-caret 0.75s step-end infinite;
             width: 0; /* Starts hidden */
             margin: 0 auto;
             text-shadow: 0 0 15px var(--primary-glow-blue);
         }
 
-        /* Keyframes for typing effect */
+        /* Orange Rotating Circle */
+        .orange-glow-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(100% + 40px); /* Slightly larger than the typed name */
+            height: calc(100% + 40px); /* Adjust as needed */
+            border: 6px solid transparent; /* Thicker border */
+            border-top-color: var(--orange-glow);
+            border-right-color: var(--orange-glow);
+            border-radius: 50%;
+            animation: rotate-orange 6s linear infinite; /* Adjusted speed for faster slow motion */
+            filter: blur(3px); /* Stronger blur for more glow */
+            opacity: 0.9; /* Slightly more opaque */
+            transform: translate(-50%, -50%);
+            z-index: -1; /* Behind the name */
+            box-shadow: 0 0 30px var(--orange-glow), inset 0 0 15px var(--orange-glow); /* More prominent glow */
+        }
+
+        @keyframes rotate-orange {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Keyframes for typing effect (slower and infinite) */
         @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+            0% { width: 0 }
+            50% { width: 100% }
+            100% { width: 0 }
         }
 
         /* Keyframes for blinking caret */
@@ -212,6 +209,58 @@
             from, to { border-color: transparent }
             50% { border-color: var(--primary-glow-blue); }
         }
+
+        /* Navigation Menu in Hero Section */
+        .hero-content nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            justify-content: center;
+            margin-top: 20px; /* Space above menu */
+        }
+
+        .hero-content nav ul li {
+            margin: 0 15px 10px; /* Adjust spacing */
+        }
+
+        .hero-content nav ul li a {
+            color: var(--text-color);
+            font-weight: 700;
+            font-family: var(--font-headings);
+            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
+            position: relative;
+            display: flex; /* For icon alignment */
+            align-items: center;
+        }
+
+        .hero-content nav ul li a i {
+            margin-right: 8px; /* Space between icon and text */
+            font-size: 1.1em;
+        }
+
+        .hero-content nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-glow-blue);
+            transition: width 0.3s ease-out;
+        }
+
+        .hero-content nav ul li a:hover {
+            color: var(--primary-glow-blue);
+            text-shadow: 0 0 10px var(--primary-glow-blue);
+            transform: translateY(-2px);
+        }
+
+        .hero-content nav ul li a:hover::after {
+            width: 100%;
+        }
+
 
         .hero p {
             font-size: 1.5em;
@@ -615,7 +664,7 @@
             .hero p {
                 font-size: 1.3em;
             }
-            nav ul li {
+            .hero-content nav ul li {
                 margin-left: 20px;
             }
             section h2 {
@@ -647,11 +696,11 @@
                 filter: blur(30px);
             }
 
-            nav ul {
+            .hero-content nav ul {
                 flex-direction: column;
                 margin-top: 15px;
             }
-            nav ul li {
+            .hero-content nav ul li {
                 margin: 5px 0;
             }
             header .container {
@@ -684,6 +733,12 @@
             .energy-swirl:nth-child(3) { width: 240px; height: 240px; }
             .enlightenment-words {
                 font-size: 1.3em;
+            }
+            .orange-glow-circle {
+                width: calc(100% + 30px); /* Adjust for smaller screens */
+                height: calc(100% + 30px);
+                border-width: 5px; /* Adjust thickness */
+                box-shadow: 0 0 25px var(--orange-glow), inset 0 0 10px var(--orange-glow);
             }
         }
 
@@ -725,30 +780,37 @@
             .enlightenment-words {
                 font-size: 1.1em;
             }
+            .orange-glow-circle {
+                width: calc(100% + 20px); /* Further adjust for very small screens */
+                height: calc(100% + 20px);
+                border-width: 4px; /* Adjust thickness */
+                box-shadow: 0 0 20px var(--orange-glow), inset 0 0 8px var(--orange-glow);
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">Hillary Eland | GD STUDIOS</div>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#enlightenment">Enlightenment</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <div class="logo">Hillary Eland | GD STUDIOS</div>
     </header>
 
     <main>
         <section id="hero" class="hero">
             <div class="glowing-circle"></div>
             <div class="hero-content">
-                <h1 class="typed-name">Hillary Eland</h1>
+                <div class="typed-name-container">
+                    <h1 class="typed-name">Hillary Eland</h1>
+                    <div class="orange-glow-circle"></div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about"><i class="fas fa-user-circle"></i>About</a></li>
+                        <li><a href="#projects"><i class="fas fa-project-diagram"></i>Projects</a></li>
+                        <li><a href="#skills"><i class="fas fa-code"></i>Skills</a></li>
+                        <li><a href="#enlightenment"><i class="fas fa-lightbulb"></i>Enlightenment</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i>Contact</a></li>
+                    </ul>
+                </nav>
                 <p>Founder of GD STUDIOS | Child Genius Developer | Innovator | Problem Solver | Future Tech Leader</p>
                 <a href="#projects" class="btn">Explore My Creations</a>
             </div>
@@ -894,7 +956,7 @@
         </div>
     </footer>
 
-    <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT_CODE.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" crossorigin="anonymous"></script>
 
     <script>
         // JavaScript for Smooth Scrolling
