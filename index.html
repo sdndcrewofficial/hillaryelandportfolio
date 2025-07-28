@@ -7,40 +7,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-
     <style>
         /*
         * CSS Styles for Hillary Eland's Genius Developer Portfolio
-        * Design Philosophy: Dark, futuristic, high-tech, glowing, professional, and responsive.
+        * Design Philosophy: Modern, professional, and responsive.
+        * Hero Section: Dark background image with subtle overlay for visual impact.
+        * Content Sections: Clean, light/white backgrounds for readability.
         * Colors:
-        * Primary Glow Blue: #00eaff (Bright, electric blue for primary glow/accents)
-        * Secondary Accent Blue: #00aaff (Slightly deeper blue for supporting elements)
-        * Dark Background: #1a1a2e (Deep purplish-blue for main background)
-        * Darker Section Background: #0f0f1c (Even deeper for alternate sections)
-        * Text Color: #e0e0e0 (Light gray for general text)
-        * Heading Color: #ffffff (Pure white for prominent headings)
-        * Accent Gray: #5a5a6e (Subtle gray for borders, secondary text)
+        * Primary Accent Blue: #007bff (Standard blue for primary accents/links)
+        * Orange Accent: #ffa500 (Used to be for the decorative wavy line, now gold)
+        * Gold Glow Color: #ffcc00 (Vibrant gold for the lightning line)
+        * Gold Glow Shadow: #ffeb3b (Lighter gold for inner glow)
+        * Dark Text: #333333 (Dark gray for general text and headings in light sections)
+        * Medium Text: #555555 (Slightly lighter dark gray for body text in light sections)
+        * Light Backgrounds: #ffffff (Pure white for main background of content sections)
+        * Lighter Section Background: #f9f9f9 (Very light gray for alternate sections)
+        * Borders: #dddddd (Light gray for subtle borders)
+        * Accent Gray: #cccccc (Subtle gray for elements)
         */
 
         :root {
-            --primary-glow-blue: #00eaff;
-            --secondary-accent-blue: #00aaff;
-            --dark-background: #1a1a2e;
-            --darker-section-background: #0f0f1c;
-            --text-color: #e0e0e0;
-            --heading-color: #ffffff;
-            --accent-gray: #5a5a6e;
+            --primary-accent-blue: #007bff;
+            --orange-accent: #ffa500; /* Keeping for consistency if other orange elements existed, but wavy line is now gold */
+            --gold-glow-color: #ffcc00; /* New variable for the gold lightning line */
+            --gold-glow-shadow: #ffeb3b; /* Lighter gold for inner glow of lightning line */
+            --dark-text: #333333;
+            --medium-text: #555555;
+            --light-background: #ffffff;
+            --lighter-section-background: #f9f9f9;
+            --border-color: #dddddd;
+            --accent-gray: #cccccc;
             --font-main: 'Roboto', sans-serif;
-            --font-headings: 'Orbitron', sans-serif; /* Futuristic headings */
-            --font-code: 'Share Tech Mono', monospace; /* Monospace for code/tech terms */
-            --orange-glow: #ffa500; /* Orange glow color */
-        }
-
-        /* Global Glow Animation for Professionalism */
-        @keyframes subtle-glow {
-            0% { box-shadow: 0 0 5px rgba(0, 234, 255, 0.4), 0 0 10px rgba(0, 234, 255, 0.2); }
-            50% { box-shadow: 0 0 10px rgba(0, 234, 255, 0.6), 0 0 20px rgba(0, 234, 255, 0.3); }
-            100% { box-shadow: 0 0 5px rgba(0, 234, 255, 0.4), 0 0 10px rgba(0, 234, 255, 0.2); }
+            --font-headings: 'Orbitron', sans-serif;
+            --font-code: 'Share Tech Mono', monospace;
         }
 
         /* Base Styles */
@@ -49,29 +48,29 @@
             line-height: 1.8;
             margin: 0;
             padding: 0;
-            background-color: var(--dark-background);
-            color: var(--text-color);
+            background-color: var(--light-background); /* White background for general content */
+            color: var(--medium-text);
             scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevent horizontal scroll from glowing elements */
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-headings);
-            color: var(--heading-color);
+            color: var(--dark-text);
             margin-bottom: 0.8em;
-            text-shadow: 0 0 5px var(--primary-glow-blue); /* Subtle heading glow */
+            /* Removed text-shadow */
         }
 
         a {
-            color: var(--primary-glow-blue);
+            color: var(--primary-accent-blue);
             text-decoration: none;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--secondary-accent-blue);
+            color: var(--primary-accent-blue);
             text-decoration: underline;
-            text-shadow: 0 0 8px var(--primary-glow-blue);
+            /* Removed text-shadow */
         }
 
         .container {
@@ -80,17 +79,17 @@
             padding: 0 25px;
         }
 
-        /* Header (simplified) */
+        /* Header */
         header {
-            background-color: var(--darker-section-background);
+            background-color: var(--lighter-section-background);
             padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 5px 15px rgba(0, 234, 255, 0.1);
-            border-bottom: 1px solid var(--accent-gray);
-            animation: subtle-glow 3s infinite ease-in-out;
-            display: flex; /* Ensure header content is centered */
+            /* Removed box-shadow */
+            border-bottom: 1px solid var(--border-color);
+            /* Removed animation */
+            display: flex;
             justify-content: center;
             align-items: center;
         }
@@ -99,18 +98,23 @@
             font-family: var(--font-headings);
             font-size: 2.2em;
             font-weight: 700;
-            color: var(--heading-color);
-            text-shadow: 0 0 10px var(--primary-glow-blue);
+            color: var(--dark-text);
+            /* Removed text-shadow */
         }
 
-        /* Hero Section with Name Animation & Glowing Circle */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--dark-background) 0%, #0a0a1a 100%);
-            color: var(--heading-color);
+            background-image: url('images/background.jpg'); /* Background image applied here */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay color */
+            background-blend-mode: overlay; /* Blend overlay with image */
+            color: #ffffff; /* White text for contrast on dark background */
             text-align: center;
             padding: 100px 20px 120px;
             position: relative;
-            overflow: hidden; /* Hide overflow for animations */
+            overflow: hidden;
             min-height: 600px;
             display: flex;
             flex-direction: column;
@@ -118,97 +122,87 @@
             align-items: center;
         }
 
-        /* Glowing Blue Circle */
-        .glowing-circle {
+        /* Wavy Overlay Line (now a glowing lightning line) */
+        .wavy-overlay-line {
             position: absolute;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, var(--primary-glow-blue) 0%, rgba(0, 234, 255, 0.4) 30%, rgba(0, 234, 255, 0) 70%);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: pulse-glow 5s infinite ease-in-out alternate;
-            z-index: 1; /* Behind text */
-            filter: blur(50px); /* Soften the glow */
+            top: 15%; /* Adjust as needed */
+            left: 55%; /* Adjust as needed */
+            width: 700px; /* Length of the line */
+            height: 120px; /* Controls how "wavy" it is vertically */
+            background-color: var(--gold-glow-color); /* Gold color */
+            /* Adjusted border-radius for a more "lightning" like jagged shape */
+            border-radius: 85% 15% 75% 25% / 25% 75% 15% 85%;
+            transform: rotate(30deg); /* Angle of the line */
+            opacity: 0.8; /* Make it slightly translucent */
+            z-index: 3; /* Above hero content, but below text if necessary, adjust based on visual */
+            /* Glowing effect */
+            box-shadow: 0 0 15px var(--gold-glow-color), 0 0 30px var(--gold-glow-shadow), 0 0 45px var(--gold-glow-color);
+            animation: pulse-gold-glow 2s infinite alternate; /* Subtle pulsing glow animation */
         }
 
-        @keyframes pulse-glow {
-            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+        @keyframes pulse-gold-glow {
+            from {
+                box-shadow: 0 0 10px var(--gold-glow-color), 0 0 20px var(--gold-glow-shadow), 0 0 30px var(--gold-glow-color);
+                opacity: 0.7;
+            }
+            to {
+                box-shadow: 0 0 20px var(--gold-glow-color), 0 0 40px var(--gold-glow-shadow), 0 0 60px var(--gold-glow-color);
+                opacity: 0.9;
+            }
         }
 
         .hero-content {
             position: relative;
-            z-index: 2; /* Above the circle */
-            display: flex; /* To arrange content vertically */
+            z-index: 2;
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             width: 100%;
+            color: #ffffff; /* Ensure hero content text is white */
         }
 
-        /* Name Typing Animation */
+        /* Hero Icon */
+        .hero-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-gray); /* Subtle border */
+            /* Removed box-shadow */
+            margin-bottom: 30px;
+            z-index: 3;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-icon:hover {
+            transform: scale(1.08);
+            /* Removed box-shadow */
+        }
+
+        /* Name Typing Animation (Static now) */
         .typed-name-container {
-            position: relative; /* Container for name and rotating circle */
-            display: inline-block; /* Shrink to content */
+            position: relative;
+            display: inline-block;
             margin: 0 auto;
-            margin-bottom: 20px; /* Space between name and menu */
+            margin-bottom: 20px;
         }
 
         .typed-name {
             font-family: var(--font-headings);
             font-size: 4.5em;
             font-weight: 700;
-            color: var(--heading-color);
-            overflow: hidden; /* Ensures characters appear one by one */
-            white-space: nowrap; /* Keeps text on one line */
-            border-right: 4px solid var(--primary-glow-blue); /* Cursor effect */
-            animation:
-                typing 6s steps(14, end) infinite alternate, /* Infinite and slower typing */
-                blink-caret 0.75s step-end infinite;
-            width: 0; /* Starts hidden */
+            color: #ffffff; /* White for hero text */
+            overflow: hidden;
+            white-space: nowrap;
+            /* Removed border-right (caret) */
+            /* Removed animations */
+            width: 100%; /* Make visible by default */
             margin: 0 auto;
-            text-shadow: 0 0 15px var(--primary-glow-blue);
+            /* Removed text-shadow */
         }
 
-        /* Orange Rotating Circle */
-        .orange-glow-circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: calc(100% + 40px); /* Slightly larger than the typed name */
-            height: calc(100% + 40px); /* Adjust as needed */
-            border: 6px solid transparent; /* Thicker border */
-            border-top-color: var(--orange-glow);
-            border-right-color: var(--orange-glow);
-            border-radius: 50%;
-            animation: rotate-orange 6s linear infinite; /* Adjusted speed for faster slow motion */
-            filter: blur(3px); /* Stronger blur for more glow */
-            opacity: 0.9; /* Slightly more opaque */
-            transform: translate(-50%, -50%);
-            z-index: -1; /* Behind the name */
-            box-shadow: 0 0 30px var(--orange-glow), inset 0 0 15px var(--orange-glow); /* More prominent glow */
-        }
-
-        @keyframes rotate-orange {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        /* Keyframes for typing effect (slower and infinite) */
-        @keyframes typing {
-            0% { width: 0 }
-            50% { width: 100% }
-            100% { width: 0 }
-        }
-
-        /* Keyframes for blinking caret */
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary-glow-blue); }
-        }
+        /* Removed orange-glow-circle */
 
         /* Navigation Menu in Hero Section */
         .hero-content nav ul {
@@ -216,27 +210,28 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            flex-wrap: wrap;
             justify-content: center;
-            margin-top: 20px; /* Space above menu */
+            margin-top: 20px;
         }
 
         .hero-content nav ul li {
-            margin: 0 15px 10px; /* Adjust spacing */
+            margin: 0 15px 10px;
         }
 
         .hero-content nav ul li a {
-            color: var(--text-color);
+            color: #ffffff; /* White for links in hero */
             font-weight: 700;
             font-family: var(--font-headings);
-            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
+            transition: color 0.3s ease, transform 0.2s ease;
             position: relative;
-            display: flex; /* For icon alignment */
+            display: flex;
             align-items: center;
+            background-color: transparent; /* Ensure no background on links */
         }
 
         .hero-content nav ul li a i {
-            margin-right: 8px; /* Space between icon and text */
+            margin-right: 8px;
             font-size: 1.1em;
         }
 
@@ -247,13 +242,13 @@
             left: 0;
             width: 0;
             height: 3px;
-            background-color: var(--primary-glow-blue);
+            background-color: var(--primary-accent-blue);
             transition: width 0.3s ease-out;
         }
 
         .hero-content nav ul li a:hover {
-            color: var(--primary-glow-blue);
-            text-shadow: 0 0 10px var(--primary-glow-blue);
+            color: var(--primary-accent-blue);
+            /* Removed text-shadow */
             transform: translateY(-2px);
         }
 
@@ -266,47 +261,44 @@
             font-size: 1.5em;
             max-width: 800px;
             margin: 25px auto 40px;
-            color: var(--text-color);
-            opacity: 0; /* Start hidden */
-            animation: fadeIn 1s forwards 3.5s; /* Appear after typing */
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
+            color: #e0e0e0; /* Light gray for hero descriptive text */
+            opacity: 1; /* Always visible */
+            /* Removed animation */
         }
 
         .hero .btn {
-            background-color: var(--primary-glow-blue);
-            color: var(--dark-background);
+            background-color: var(--primary-accent-blue);
+            color: var(--light-background);
             padding: 15px 40px;
             border-radius: 8px;
             font-weight: 700;
             font-family: var(--font-headings);
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 0 15px rgba(0, 234, 255, 0.5); /* Initial glow */
-            opacity: 0; /* Start hidden */
-            animation: fadeIn 1s forwards 4s, subtle-glow 3s infinite ease-in-out;
+            /* Removed box-shadow */
+            opacity: 1; /* Always visible */
+            /* Removed animation */
         }
 
         .hero .btn:hover {
-            background-color: var(--secondary-accent-blue);
-            color: var(--heading-color);
+            background-color: #0056b3; /* Darker blue on hover */
+            color: var(--light-background);
             text-decoration: none;
-            box-shadow: 0 0 25px rgba(0, 234, 255, 0.8);
+            /* Removed box-shadow */
             transform: translateY(-3px);
         }
 
         /* Section Styling */
         section {
             padding: 80px 0;
-            border-bottom: 1px solid var(--accent-gray);
-            position: relative; /* For potential future animations */
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            background-color: var(--light-background); /* White background for sections */
         }
 
         section:nth-child(even) { /* Alternate background for sections */
-            background-color: var(--darker-section-background);
+            background-color: var(--lighter-section-background); /* Very light gray for alternate sections */
         }
 
         section h2 {
@@ -315,8 +307,8 @@
             margin-bottom: 50px;
             position: relative;
             padding-bottom: 20px;
-            color: var(--heading-color);
-            text-shadow: 0 0 8px var(--primary-glow-blue);
+            color: var(--dark-text);
+            /* Removed text-shadow */
         }
 
         section h2::after {
@@ -327,9 +319,9 @@
             transform: translateX(-50%);
             width: 100px;
             height: 5px;
-            background-color: var(--primary-glow-blue);
+            background-color: var(--primary-accent-blue);
             border-radius: 3px;
-            box-shadow: 0 0 10px var(--primary-glow-blue);
+            /* Removed box-shadow */
         }
 
         /* About Section */
@@ -347,14 +339,14 @@
             height: 250px;
             border-radius: 50%;
             object-fit: cover;
-            border: 6px solid var(--primary-glow-blue);
-            box-shadow: 0 0 25px rgba(0, 234, 255, 0.6);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid var(--accent-gray); /* Subtle border */
+            /* Removed box-shadow */
+            transition: transform 0.3s ease;
         }
 
         #about .profile-photo:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 234, 255, 0.8);
+            /* Removed box-shadow */
         }
 
         #about .bio-text {
@@ -362,7 +354,7 @@
             min-width: 300px;
             max-width: 700px;
             font-size: 1.1em;
-            color: var(--text-color);
+            color: var(--medium-text);
         }
 
         .skills-grid {
@@ -374,21 +366,21 @@
         }
 
         .skill-item {
-            background-color: var(--darker-section-background);
+            background-color: var(--lighter-section-background);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 234, 255, 0.2);
+            /* Removed box-shadow */
             font-weight: 600;
-            color: var(--primary-glow-blue);
+            color: var(--dark-text);
             font-family: var(--font-code);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            border: 1px solid var(--accent-gray);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: 1px solid var(--border-color);
         }
 
         .skill-item:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 0 30px rgba(0, 234, 255, 0.6);
-            background-color: #2a2a4e; /* Slightly lighter on hover */
+            /* Removed box-shadow */
+            background-color: #e6e6e6; /* Slightly darker light gray on hover */
         }
 
         /* Projects Section */
@@ -400,26 +392,26 @@
         }
 
         .project-card {
-            background-color: var(--darker-section-background);
+            background-color: var(--lighter-section-background);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 234, 255, 0.2);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            /* Removed box-shadow */
+            transition: transform 0.4s ease;
             display: flex;
             flex-direction: column;
-            border: 1px solid var(--accent-gray);
+            border: 1px solid var(--border-color);
         }
 
         .project-card:hover {
             transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 0 40px rgba(0, 234, 255, 0.5);
+            /* Removed box-shadow */
         }
 
         .project-card img {
             width: 100%;
             height: 250px;
             object-fit: cover;
-            border-bottom: 1px solid var(--accent-gray);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .project-content {
@@ -432,19 +424,19 @@
         .project-content h3 {
             font-size: 2em;
             margin-top: 0;
-            color: var(--primary-glow-blue);
-            text-shadow: none; /* No extra glow on project titles */
+            color: var(--primary-accent-blue);
+            /* Removed text-shadow */
         }
 
         .project-content p {
             font-size: 1em;
             margin-bottom: 20px;
             flex-grow: 1;
-            color: var(--text-color);
+            color: var(--medium-text);
         }
 
         .project-content strong {
-            color: var(--primary-glow-blue);
+            color: var(--primary-accent-blue);
             font-family: var(--font-code);
         }
 
@@ -452,36 +444,36 @@
             margin-top: 15px;
             display: flex;
             gap: 15px;
-            justify-content: center; /* Center links */
+            justify-content: center;
         }
 
         .project-links a {
-            display: inline-flex; /* Use flex for icon & text alignment */
+            display: inline-flex;
             align-items: center;
-            background-color: var(--primary-glow-blue);
-            color: var(--dark-background);
+            background-color: var(--primary-accent-blue);
+            color: var(--light-background);
             padding: 10px 20px;
             border-radius: 8px;
             font-weight: 700;
             font-family: var(--font-headings);
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 234, 255, 0.4);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Removed box-shadow */
         }
 
         .project-links a i {
-            margin-right: 8px; /* Space between icon and text */
+            margin-right: 8px;
         }
 
         .project-links a:hover {
-            background-color: var(--secondary-accent-blue);
-            color: var(--heading-color);
+            background-color: #0056b3; /* Darker blue on hover */
+            color: var(--light-background);
             text-decoration: none;
-            box-shadow: 0 0 20px rgba(0, 234, 255, 0.8);
+            /* Removed box-shadow */
         }
 
         /* Enlightenment Generator Section */
         #enlightenment {
-            background: radial-gradient(circle at center, #001a33 0%, #000a1a 100%);
+            background-color: var(--light-background); /* White background */
             padding: 100px 0;
             position: relative;
             overflow: hidden;
@@ -490,7 +482,7 @@
             justify-content: center;
             align-items: center;
             min-height: 600px;
-            border-bottom: 1px solid var(--accent-gray);
+            border-bottom: 1px solid var(--border-color);
         }
 
         #enlightenment h2 {
@@ -509,95 +501,31 @@
             align-items: center;
             overflow: hidden;
             border-radius: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 50px rgba(0, 234, 255, 0.5), inset 0 0 30px rgba(0, 234, 255, 0.3);
-            border: 2px solid var(--primary-glow-blue);
-            animation: subtle-glow 4s infinite ease-in-out;
+            background-color: var(--lighter-section-background);
+            /* Removed box-shadow */
+            border: 2px solid var(--accent-gray);
+            /* Removed animation */
             margin-bottom: 40px;
             z-index: 5;
         }
 
-        /* Core Orb */
-        .core-orb {
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, #8effff 0%, var(--primary-glow-blue) 40%, #001a33 100%);
-            border-radius: 50%;
-            box-shadow: 0 0 60px var(--primary-glow-blue), 0 0 100px rgba(0, 234, 255, 0.6);
-            animation: orb-pulse 3s infinite ease-in-out alternate;
-            position: relative;
-            z-index: 10;
-        }
-
-        @keyframes orb-pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* Energy Swirls */
-        .energy-swirl {
-            position: absolute;
-            width: 250px;
-            height: 250px;
-            border: 3px solid transparent;
-            border-top-color: var(--primary-glow-blue);
-            border-right-color: var(--secondary-accent-blue);
-            border-radius: 50%;
-            animation: swirl 10s linear infinite;
-            filter: blur(2px);
-            opacity: 0.7;
-        }
-        .energy-swirl:nth-child(1) { animation-duration: 10s; width: 250px; height: 250px; border-width: 3px; }
-        .energy-swirl:nth-child(2) { animation-duration: 12s; width: 200px; height: 200px; border-width: 2px; opacity: 0.6; animation-direction: reverse; }
-        .energy-swirl:nth-child(3) { animation-duration: 8s; width: 300px; height: 300px; border-width: 4px; opacity: 0.8; }
-
-        @keyframes swirl {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Particle Stream */
-        .particle-stream {
-            position: absolute;
-            background-color: var(--primary-glow-blue);
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            opacity: 0;
-            animation: particle-flow 4s infinite ease-out;
-            box-shadow: 0 0 8px var(--primary-glow-blue);
-        }
-        /* Note: random() is not standard CSS, you'd typically use JS or preprocessor for true randomness */
-        /* For this example, particles will emanate from center to fixed outer points defined in HTML */
-
-        @keyframes particle-flow {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; } /* Start from center */
-            10% { transform: translate(-50%, -50%) scale(1); opacity: 1; } /* Emerge */
-            90% { transform: var(--particle-target-translate) scale(1.2); opacity: 1; } /* Move to target */
-            100% { transform: var(--particle-target-translate) scale(0); opacity: 0; } /* Fade out at target */
-        }
+        /* Removed core-orb, energy-swirl, particle-stream and their animations */
 
         .enlightenment-words {
             position: absolute;
             font-family: var(--font-headings);
             font-size: 1.8em;
-            color: var(--primary-glow-blue);
-            text-shadow: 0 0 15px var(--primary-glow-blue), 0 0 30px rgba(0, 234, 255, 0.5);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: word-fade-in 1.5s forwards; /* Will be triggered by JS with delays */
+            color: var(--dark-text);
+            /* Removed text-shadow */
+            opacity: 1; /* Always visible */
+            transform: translateY(0); /* No initial transform */
+            /* Removed animation */
             text-align: center;
-            top: 50%; /* Center vertically within generator container */
-            left: 50%; /* Center horizontally within generator container */
-            transform: translate(-50%, -50%); /* Adjust for its own size */
-            z-index: 15; /* Above other elements in generator */
-            max-width: 80%; /* Ensure long words wrap */
-        }
-
-        @keyframes word-fade-in {
-            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 15;
+            max-width: 80%;
         }
 
         .generator-description {
@@ -605,7 +533,7 @@
             max-width: 800px;
             margin-top: 40px;
             font-size: 1.1em;
-            color: var(--text-color);
+            color: var(--medium-text);
             position: relative;
             z-index: 10;
         }
@@ -634,26 +562,26 @@
 
         .social-links a {
             font-size: 3.5em;
-            color: var(--primary-glow-blue);
-            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
-            text-shadow: 0 0 10px rgba(0, 234, 255, 0.4);
+            color: var(--primary-accent-blue);
+            transition: color 0.3s ease, transform 0.3s ease;
+            /* Removed text-shadow */
         }
 
         .social-links a:hover {
-            color: var(--secondary-accent-blue);
+            color: #0056b3; /* Darker blue on hover */
             transform: translateY(-8px);
-            text-shadow: 0 0 20px rgba(0, 234, 255, 0.8);
+            /* Removed text-shadow */
         }
 
         /* Footer */
         footer {
-            background-color: var(--darker-section-background);
-            color: var(--accent-gray);
+            background-color: var(--lighter-section-background);
+            color: #666666; /* Darker gray for footer text */
             text-align: center;
             padding: 2.5rem 0;
             font-size: 0.9em;
             margin-top: 50px;
-            border-top: 1px solid var(--accent-gray);
+            border-top: 1px solid var(--border-color);
         }
 
         /* Responsive Design */
@@ -677,6 +605,13 @@
             .enlightenment-words {
                 font-size: 1.5em;
             }
+            .wavy-overlay-line {
+                width: 600px; /* Adjust for tablet */
+                height: 100px;
+                left: 50%;
+                top: 12%;
+                transform: rotate(25deg) translateX(-50%);
+            }
         }
 
         @media (max-width: 768px) {
@@ -689,19 +624,6 @@
             }
             .hero p {
                 font-size: 1.1em;
-            }
-            .glowing-circle {
-                width: 250px;
-                height: 250px;
-                filter: blur(30px);
-            }
-
-            .hero-content nav ul {
-                flex-direction: column;
-                margin-top: 15px;
-            }
-            .hero-content nav ul li {
-                margin: 5px 0;
             }
             header .container {
                 flex-direction: column;
@@ -724,21 +646,15 @@
             .generator-container {
                 height: 300px;
             }
-            .core-orb {
-                width: 120px;
-                height: 120px;
-            }
-            .energy-swirl:nth-child(1) { width: 200px; height: 200px; }
-            .energy-swirl:nth-child(2) { width: 160px; height: 160px; }
-            .energy-swirl:nth-child(3) { width: 240px; height: 240px; }
             .enlightenment-words {
                 font-size: 1.3em;
             }
-            .orange-glow-circle {
-                width: calc(100% + 30px); /* Adjust for smaller screens */
-                height: calc(100% + 30px);
-                border-width: 5px; /* Adjust thickness */
-                box-shadow: 0 0 25px var(--orange-glow), inset 0 0 10px var(--orange-glow);
+            .wavy-overlay-line {
+                width: 450px; /* Adjust for mobile landscape */
+                height: 80px;
+                left: 45%;
+                top: 15%;
+                transform: rotate(20deg) translateX(-50%);
             }
         }
 
@@ -770,21 +686,15 @@
                 height: 250px;
                 border-radius: 15px;
             }
-            .core-orb {
-                width: 100px;
-                height: 100px;
-            }
-            .energy-swirl:nth-child(1) { width: 160px; height: 160px; }
-            .energy-swirl:nth-child(2) { width: 130px; height: 130px; }
-            .energy-swirl:nth-child(3) { width: 190px; height: 190px; }
             .enlightenment-words {
                 font-size: 1.1em;
             }
-            .orange-glow-circle {
-                width: calc(100% + 20px); /* Further adjust for very small screens */
-                height: calc(100% + 20px);
-                border-width: 4px; /* Adjust thickness */
-                box-shadow: 0 0 20px var(--orange-glow), inset 0 0 8px var(--orange-glow);
+            .wavy-overlay-line {
+                width: 300px; /* Adjust for small mobile */
+                height: 60px;
+                left: 40%;
+                top: 20%;
+                transform: rotate(15deg) translateX(-50%);
             }
         }
     </style>
@@ -796,11 +706,11 @@
 
     <main>
         <section id="hero" class="hero">
-            <div class="glowing-circle"></div>
+            <div class="wavy-overlay-line"></div>
             <div class="hero-content">
+                <img src="images/myself potraz.jpg" alt="Hillary Eland Icon" class="hero-icon">
                 <div class="typed-name-container">
                     <h1 class="typed-name">Hillary Eland</h1>
-                    <div class="orange-glow-circle"></div>
                 </div>
                 <nav>
                     <ul>
@@ -820,7 +730,7 @@
             <div class="container">
                 <h2>About Me & GD STUDIOS</h2>
                 <div class="about-content">
-                    <img src="https://via.placeholder.com/250/00eaff/000000?text=Hillary+Eland" alt="Hillary Eland Profile Photo" class="profile-photo">
+                    <img src="images/myself potraz.jpg" alt="Hillary Eland Profile Photo" class="profile-photo">
                     <div class="bio-text">
                         <p>At just 14 years old, I am **Hillary Eland**, a passionate and driven developer with an insatiable curiosity for the digital world. My journey into programming began at a very young age, transforming complex ideas into elegant, functional, and visually stunning applications.</p>
                         <p>I am currently a proud student at **Amazon Christian Academy**, where I further hone my analytical and creative thinking, blending robust academic principles with cutting-edge technological exploration. This unique educational environment empowers me to approach development challenges with a holistic and innovative mindset.</p>
@@ -911,16 +821,6 @@
             <div class="container">
                 <h2>The Enlightenment Generator</h2>
                 <div class="generator-container">
-                    <div class="energy-swirl"></div>
-                    <div class="energy-swirl"></div>
-                    <div class="energy-swirl"></div>
-                    <div class="core-orb"></div>
-                    <div class="particle-stream" style="--particle-target-translate: translate(100px, 50px);"></div>
-                    <div class="particle-stream" style="--particle-target-translate: translate(-80px, -30px); animation-delay: 0.7s;"></div>
-                    <div class="particle-stream" style="--particle-target-translate: translate(30px, -90px); animation-delay: 1.4s;"></div>
-                    <div class="particle-stream" style="--particle-target-translate: translate(-120px, 80px); animation-delay: 2.1s;"></div>
-                    <div class="particle-stream" style="--particle-target-translate: translate(90px, -70px); animation-delay: 2.8s;"></div>
-
                     <div class="enlightenment-words" id="enlightenmentWords"></div>
                 </div>
                 <p class="generator-description">Witness the core of innovation: a visual representation of ideas coalescing into breakthrough solutions. The Enlightenment Generator symbolizes the dynamic process of problem-solving and creative engineering that drives **GD STUDIOS** and my personal development journey.</p>
@@ -997,16 +897,9 @@
         let currentWordIndex = 0;
 
         function displayEnlightenmentWord() {
-            // Fade out current word
-            enlightenmentWordsContainer.style.animation = 'none'; // Reset animation
-            enlightenmentWordsContainer.offsetHeight; // Trigger reflow
-            enlightenmentWordsContainer.style.opacity = '0';
-
-            setTimeout(() => {
-                enlightenmentWordsContainer.textContent = wordsOfEnlightenment[currentWordIndex];
-                enlightenmentWordsContainer.style.animation = 'word-fade-in 1.5s forwards';
-                currentWordIndex = (currentWordIndex + 1) % wordsOfEnlightenment.length;
-            }, 500); // Wait for fade out before changing text and fading in
+            // No animation for fade out/in, simply update text
+            enlightenmentWordsContainer.textContent = wordsOfEnlightenment[currentWordIndex];
+            currentWordIndex = (currentWordIndex + 1) % wordsOfEnlightenment.length;
 
             setTimeout(displayEnlightenmentWord, 5000); // Change word every 5 seconds
         }
