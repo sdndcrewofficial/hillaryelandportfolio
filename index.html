@@ -73,7 +73,7 @@
     nav a:hover{color:#0b5ed7}
     .donate{background:linear-gradient(180deg,var(--gold),var(--gold-2));padding:10px 16px;border-radius:10px;color:#0b1020;font-weight:800}
 
-    /* Hero full-bleed, inspired by the example design */
+    /* Hero full-bleed, updated to smoothly integrate a portrait image on the right */
     .hero{
       width:100%;
       min-height:76vh;
@@ -85,15 +85,39 @@
       overflow:hidden;
     }
 
-    /* Right-side hero image area (full-bleed) */
+    /* Right-side hero image area (use your portrait image here) */
+    /* Place your portrait at images/hillary-portrait.jpg (or update the URL below). The CSS blends edges so there are no visible seams. */
     .hero-bg{
       position:absolute;right:0;top:0;bottom:0;width:52%;
-      background-image: url('images/hero-bg.jpg');
-      background-size:cover;background-position:center right;filter:brightness(0.5) saturate(0.9);
-      transform:skewX(-2deg) translateZ(0);
+      /* layered background: subtle vignette + soft left fade + portrait image */
+      background-image:
+        radial-gradient(60% 80% at 60% 45%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.06) 20%, rgba(0,0,0,0.5) 70%),
+        linear-gradient(90deg, rgba(11,12,16,0.0) 0%, rgba(11,12,16,0.0) 22%, rgba(11,12,16,0.35) 50%),
+        url('images/hillary-portrait.jpg');
+      background-size:cover, cover, cover;
+      background-position:center right, center right, center right;
+      filter:contrast(0.98) saturate(0.96) brightness(0.78);
+      /* remove harsh edges and make it visually integrated */
+      box-shadow: inset -200px 0 120px -100px rgba(11,12,16,0.6);
     }
 
-    .hero-inner{max-width:calc(var(--max-width) - 40%);padding:110px 6vw 110px 6vw}
+    /* soft overlap/fade on the left edge so the portrait blends into the dark hero area */
+    .hero-bg::before{
+      content:'';
+      position:absolute;left:-6%;top:0;bottom:0;width:20%;
+      background:linear-gradient(90deg, rgba(11,12,16,0.0), rgba(11,12,16,0.55));
+      pointer-events:none;
+    }
+
+    /* subtle radial highlight to keep portrait centered and natural */
+    .hero-bg::after{
+      content:'';
+      position:absolute;inset:0;border-radius:0;
+      background:radial-gradient(60% 70% at 65% 45%, rgba(255,255,255,0.02), rgba(0,0,0,0.18));
+      mix-blend-mode:soft-light;pointer-events:none;
+    }
+
+    .hero-inner{max-width:calc(var(--max-width) - 40%);padding:110px 6vw 110px 6vw;position:relative;z-index:5}
     .eyebrow{font-weight:800;color:rgba(255,255,255,0.9);letter-spacing:1px;margin-bottom:12px}
 
     .hero h1{font-size:84px;line-height:0.9;margin:0;font-family:"Playfair Display",serif;font-weight:900;letter-spacing:-1px;color:#fff}
@@ -106,9 +130,9 @@
     .hero .btn-primary{background:linear-gradient(180deg,var(--gold),var(--gold-2));color:#0b1020;padding:14px 18px;border-radius:8px;font-weight:800;text-decoration:none}
     .hero .btn-outline{padding:12px 16px;border-radius:8px;border:2px solid rgba(255,255,255,0.18);color:#fff;text-decoration:none;font-weight:800}
 
-    /* subtle geometric bars on the right to echo the example */
+    /* subtle geometric bars on the right to echo the example — keep them very transparent so portrait is primary */
     .hero-bars{position:absolute;right:6%;top:12%;bottom:12%;width:56px;display:flex;flex-direction:column;gap:18px;pointer-events:none}
-    .hero-bars .bar{background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));height:34%;border-radius:6px}
+    .hero-bars .bar{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));height:34%;border-radius:6px;opacity:0.25}
 
     /* Sections */
     section{padding:72px 0;border-top:1px solid rgba(15,23,42,0.02);background:transparent}
@@ -176,7 +200,7 @@
     </div>
   </header>
 
-  <!-- Hero redesigned to match the style you liked; content is neutral and gold-accented -->
+  <!-- Hero redesigned to smoothly integrate your portrait on the right without visible seams -->
   <section class="hero" role="banner" aria-label="Hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-bars" aria-hidden="true">
@@ -241,7 +265,7 @@
       <h2 id="enlight-heading" class="section-title">Enlightenment Generator</h2>
       <div style="display:flex;align-items:center;justify-content:center">
         <div style="width:100%;max-width:820px;border-radius:12px;padding:28px;background:linear-gradient(180deg,#fff,#fbfbfb);border:1px solid rgba(15,23,42,0.03);box-shadow:var(--card-shadow)">
-          <div id="enlightenmentWords" style="font-family:'Playfair Display',serif;font-size:20px;color:var(--text);text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center"></div>
+          <div id="enlightenmentWords" style="font-family:'Playfair Display',serif;font-size:20px;color:var(--text);text-align:center;min-height:64px;display:flex;align-items:center;justify-conte[...]
         </div>
       </div>
     </section>
